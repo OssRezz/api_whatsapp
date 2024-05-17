@@ -1,16 +1,16 @@
 <?php
 
-function sendWhatsAppMessage($token, $version, $phoneNumberId, $phoneNumber, $template)
+function sendWhatsAppMessage($token, $version, $phoneNumberId, $phoneNumber, $template, $identificador)
 {
     // Construye los datos del mensaje
     $data = [
         'messaging_product' => 'whatsapp',
-        'to' => "57" . $phoneNumber,
+        'to' => $identificador . $phoneNumber,
         'type' => 'template',
         'template' => [
             'name' => $template,
             'language' => [
-                'code' => 'es',
+                'code' => 'es_ES',
             ],
             'components' => [
                 [
@@ -18,11 +18,15 @@ function sendWhatsAppMessage($token, $version, $phoneNumberId, $phoneNumber, $te
                     'parameters' => [
                         [
                             'type' => 'text',
-                            'text' => "Nana"
+                            'text' => "C"
                         ],
                         [
                             'type' => 'text',
-                            'text' => "Un poquito de paciencia"
+                            'text' => "C"
+                        ],
+                        [
+                            'type' => 'text',
+                            'text' => "F"
                         ]
                     ]
                 ]
@@ -115,13 +119,18 @@ function sendWhatsAppMessageSimple($token, $version, $phoneNumberId, $phoneNumbe
 
 $token = $_POST['token'];
 $version = $_POST['version'];
-$plantilla = $_POST['plantilla'];
+$template = $_POST['plantilla'];
 $id_number = $_POST['id_number'];
 $number = $_POST['number'];
 $identificador = $_POST['identificador'];
 
-//$response = sendWhatsAppMessage($token, $version, $id_number, $number, $plantilla);
-$response = sendWhatsAppMessageSimple($token, $version, $id_number, $number, $plantilla, $identificador);
+if($template == "hello_world"){
+    $response = sendWhatsAppMessageSimple($token, $version, $id_number, $number, $template, $identificador);
+
+} else {
+$response = sendWhatsAppMessage($token, $version, $id_number, $number, $template, $identificador);
+
+}
 
 echo json_encode([
     $response

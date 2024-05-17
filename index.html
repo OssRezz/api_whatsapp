@@ -6,7 +6,12 @@
     <script type="text/javascript" src="jquery-3.6.1.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="sweetalert2@11.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <title>WhatsApp</title>
+    <style>
+      
+    </style>
   </head>
   <body>
     <div class="container mx-auto">
@@ -14,15 +19,9 @@
         <div
           class="w-full max-w-xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700"
         >
-          <h5 class="text-xl font-medium text-gray-900 dark:text-white mb-5">
-            Enviar mensaje WhatsApp
-          </h5>
+          <h5 class="text-xl font-medium text-gray-900 dark:text-white mb-5">Send message to WhatsApp</h5>
           <div class="mb-5">
-            <label
-              for="text"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >token</label
-            >
+            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Token</label>
             <input
               type="text"
               name="token"
@@ -31,76 +30,60 @@
               required
             />
           </div>
-          <div class="mb-5">
-            <label
-              for="text"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Version</label
-            >
-            <input
-              type="text"
-              name="version"
-              id="version"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-              required
-            />
+          <div class="grid md:grid-cols-2 md:gap-6">
+            <div class="mb-5">
+              <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Version</label>
+              <input
+                type="text"
+                name="version"
+                id="version"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                required
+              />
+            </div>
+            <div class="mb-5">
+              <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ID number</label>
+              <input
+                type="text"
+                name="id_number"
+                id="id_number"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                required
+              />
+            </div>
           </div>
           <div class="mb-5">
-            <label
-              for="text"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Plantilla</label
-            >
-            <input
-              type="text"
-              name="plantilla"
+            <label for="plantilla" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Template</label>
+            <select
               id="plantilla"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-              required
-            />
-          </div>
-          <div class="mb-5">
-            <label
-              for="text"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Id Nùmero</label
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-            <input
-              type="text"
-              name="id_number"
-              id="id_number"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-              required
-            />
+              <option>hello_world</option>
+              <option>implementacion_empleados</option>
+            </select>
           </div>
-          <div class="mb-5">
-            <label
-              for="text"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Identificador</label
-            >
-            <input
-              type="text"
-              name="identificador"
-              id="identificador"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-              required
-            />
-          </div>
-          <div class="mb-5">
-            <label
-              for="text"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Nùmero destino</label
-            >
-            <input
-              type="text"
-              name="number"
-              id="number"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-              placeholder="name@company.com"
-              required
-            />
+
+          <div class="grid md:grid-cols-2 md:gap-6">
+            <div class="mb-5">
+              <label for="identificador" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Country</label
+              >
+              <select
+                id="identificador"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              ></select>
+            </div>
+            <div class="mb-5">
+              <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Message to # </label>
+              <input
+                type="text"
+                name="number"
+                id="number"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="name@company.com"
+                required
+              />
+            </div>
           </div>
 
           <button
@@ -108,12 +91,12 @@
             class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             onclick="sendMessage()"
           >
-            Enviar
+            Send
           </button>
         </div>
       </div>
     </div>
-  </body>
 
-  <script src="app.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
 </html>
